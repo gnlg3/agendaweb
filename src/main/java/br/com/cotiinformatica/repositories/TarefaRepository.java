@@ -22,7 +22,7 @@ public class TarefaRepository implements ITarefaRepository {
 
 		// Escrevendo uma query SQL para execução no banco de dados
 		PreparedStatement statement = connection.prepareStatement(
-				"insert into tarefa(nome, data, hora, descricao,prioridade, idusuario) values(?, ?, ?, ?, ?, ?)");
+				"insert into tarefa(nome, data, hora, descricao, prioridade, idusuario) values(?, ?, ?, ?, ?, ?)");
 
 		statement.setString(1, tarefa.getNome());
 		statement.setString(2, DateHelper.formatToString(tarefa.getData()));
@@ -85,7 +85,7 @@ public class TarefaRepository implements ITarefaRepository {
 		// Escrevendo uma query SQL para consultar as tarefas
 		PreparedStatement statement = connection.prepareStatement(
 				"select * from tarefa where data between ? and ? and idusuario = ? order by data desc, hora desc");
-
+		
 		statement.setString(1, DateHelper.formatToString(dataMin));
 		statement.setString(2, DateHelper.formatToString(dataMax));
 		statement.setInt(3, idUsuario);
@@ -122,9 +122,9 @@ public class TarefaRepository implements ITarefaRepository {
 		Connection connection = ConnectionFactory.getConnection();
 
 		// Escrevendo uma query SQL para consultar as tarefas
-		PreparedStatement statement = connection
-				.prepareStatement("select * from tarefa where idtarefa=? and idusuario=?");
-
+		PreparedStatement statement = connection.prepareStatement(
+				"select * from tarefa where idtarefa=? and idusuario=?");
+		
 		statement.setInt(1, idTarefa);
 		statement.setInt(2, idUsuario);
 
@@ -147,6 +147,8 @@ public class TarefaRepository implements ITarefaRepository {
 		}
 
 		connection.close(); // fechando a conexão
-		return tarefa;
+		return tarefa; 
 	}
+
 }
+
