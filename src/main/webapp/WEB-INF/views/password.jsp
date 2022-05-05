@@ -54,6 +54,10 @@
 								</a>
 							</div>
 						</div>
+						
+						<div class="text-center">
+							<strong>${mensagem}</strong>
+						</div>
 					
 					</form>
 					
@@ -64,7 +68,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-		<!-- JS do jquery -->
+	<!-- JS do jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
 	<!-- JS do jquery validation (posicionados após a referencia do JQuery JS) -->
@@ -101,6 +105,3 @@
 
 </body>
 </html>
-
-
-
